@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import spacy
 import warnings
+from flask_cors import CORS
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -12,6 +13,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 nlp = spacy.load('en_core_web_sm')
 
 app = Flask(__name__)
+CORS(app)
 
 # Load the machine learning model
 with open('model.pkl', 'rb') as model_file:
